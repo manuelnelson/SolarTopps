@@ -1,0 +1,83 @@
+{{> navigation}}
+<div class="background-clouds breadcrumbs-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Blog</li>
+            <li class="active">List of entries</li>
+        </ol>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-entry">
+                    <div class="blog-entry-content no-border">
+                        <div class="category">{{#each data.post.categories}}{{name}}{{/each}}</div>
+                        <h1><span>{{data.post.title}}</span></h1>
+                        <div class="date">{{dateFormat data.post.publishedDate}} </div>
+                        <!--<a href="">4 <sup><span class="fa fa-comment-o"></span></sup></a>-->
+                        <div class="content">
+                            {{{data.post.content.brief}}}
+                            {{{data.post.content.extended}}}
+                        </div>
+                    </div>
+                </div>
+                <h3>Comments: 4 <sup><span class="fa fa-comment-o"></span></sup></h3>
+                <ul class="media-list">
+                    <li class="media blog-entry">
+                        <div class="pull-left">
+                            <img class="media-object" src="img/author.jpg" alt="...">
+                        </div>
+                        <div class="media-body">
+                            <div class="blog-entry-content">
+                                <h4>Entry title</h4>
+                                <div class="date">2013.11.30 16:34</div>
+                                <div class="content">
+                                    <p>Sed porta ac ipsum ut mollis. Integer id vestibulum dui, at dapibus orci. Nunc adipiscing, orci sit amet ultricies sagittis, arcu orci feugiat lorem, nec feugiat magna erat id lectus. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <!-- Responsive calendar - START -->
+                <div class="responsive-calendar background-belize-hole color-white">
+                    <div class="controls">
+                        <a class="btn btn-primary pull-left" data-go="prev"><i class="fa fa-chevron-left"></i></a>
+                        <a class="btn btn-primary pull-right" data-go="next"><i class="fa fa-chevron-right"></i></a>
+                        <h4 class="timeInfo"></h4>
+                    </div>
+                    <div class="day-headers">
+                        <div class="day header">Mon</div>
+                        <div class="day header">Tue</div>
+                        <div class="day header">Wed</div>
+                        <div class="day header">Thu</div>
+                        <div class="day header">Fri</div>
+                        <div class="day header">Sat</div>
+                        <div class="day header">Sun</div>
+                    </div>
+                    <div class="days" data-group="days">
+                        <!-- the place where days will be generated -->
+                    </div>
+                </div>
+                <!-- Responsive calendar - END -->
+                <h3>Latest</h3>
+                <ul class="side-list">
+                {{#each data.posts}}
+                    <li><a href="/blog/post/{{slug}}">{{title}}</a></li>
+                {{/each}}
+                </ul>
+                <h3>Category</h3>
+                <ul class="side-list">
+                    {{#each data.categories}}
+                        <li><a href="/blog/{{key}}">{{name}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
