@@ -20,7 +20,7 @@
                         <div class="media-body">
                             <div class="blog-entry-content">
                                 <div class="category">{{#each categories}}{{name}}{{/each}}</div>
-                                <h2><a href="#">{{title}}</a></h2>
+                                <h2><a href="/blog/posts/{{slug}}">{{title}}</a></h2>
                                 <div class="date">{{dateFormat publishedDate}}</div>
                                 <div class="content">
                                     {{{content.brief}}}
@@ -61,13 +61,11 @@
                     </div>
                 </div>
                 <!-- Responsive calendar - END -->
-                <h3>Archives</h3>
+                <h3>Latest</h3>
                 <ul class="side-list">
-                    <li><a href="#">August 2013</a></li>
-                    <li><a href="#">September 2013</a></li>
-                    <li><a href="#">October 2013</a></li>
-                    <li><a href="#">November 2013</a></li>
-                    <li><a href="#">December 2013</a></li>
+                    {{#each data.latest}}
+                        <li><a href="/blog/post/{{slug}}">{{title}}</a></li>
+                    {{/each}}
                 </ul>
                 <h3>Category</h3>
                 <ul class="side-list">
@@ -79,3 +77,13 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.responsive-calendar').responsiveCalendar({
+            time: '{{data.calendar.time}}',
+            events: {{data.calendar.events}}
+        });
+
+        $('#mixit').mixitup();
+    });
+</script>

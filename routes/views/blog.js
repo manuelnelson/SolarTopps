@@ -1,5 +1,6 @@
 var keystone = require('keystone'),
-	async = require('async');
+	async = require('async'),
+    helpers = require('helpers');
 
 exports = module.exports = function(req, res) {
 	
@@ -42,57 +43,22 @@ exports = module.exports = function(req, res) {
 		});
 
 	});
-    var menu;
     view.on('init', function(next) {
-        var q = keystone.list('MenuTab').model.where({
-            state: 'published'
-        });
-
-        q.exec(function(err, result) {
-            menu = result;
+        helpers.getMenu(function(err,result){
+            locals.data.menu = result;
             next(err);
         });
     });
+
+    // Load latest
     view.on('init', function(next) {
-        var q = keystone.list('MenuLink').model.where({
-            state: 'published'
-        }).populate('menuTab');
-
-        q.exec(function(err, result) {
-            //go through menu, get menulinks for menutabs with no slug
-            _.each(menu,function(item,ndx){
-                if(item.slug != "")
-                    item.hasSubMenu = false;
-                else{
-                    item.hasSubMenu = true;
-                    var subMenuLinks = _.filter(result,function(link){
-                        return link.menuTab.name == item.name;
-                    });
-                    item.subMenuLinks = _.sortBy(subMenuLinks, function(subLink){
-                        return subLink.order;
-                    });
-                }
-
-            });
-            locals.data.menu = menu;
+        var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').limit('5');
+        q.exec(function(err, results) {
+            locals.data.latest = results;
             next(err);
         });
     });
-	
-	// Load the current category filter
-//	view.on('init', function(next) {
-//
-//		if (req.params.category) {
-//			keystone.list('PostCategory').model.findOne({ key: locals.filters.category }).exec(function(err, result) {
-//				locals.data.category = result;
-//				next(err);
-//			});
-//		} else {
-//			next();
-//		}
-//
-//	});
-	
+
 	// Load the posts
 	view.on('init', function(next) {
 
@@ -115,7 +81,29 @@ exports = module.exports = function(req, res) {
 		});
 
 	});
-	
+
+    view.on('init', function(next){
+//        {
+//            "2013-05-30": {"number": 5, "badgeClass": "background-turquoise", "url": "http://w3widgets.com/responsive-slider"},
+//            "2013-05-26": {"number": 1, "badgeClass": "background-turquoise", "url": "http://w3widgets.com"},
+//            "2013-05-03": {"number": 1, "badgeClass": "background-pomegranate"},
+//            "2013-05-12": {}}
+
+        var currDate = new Date();
+        //get first day of current month
+        console.log(currDate.getUTCFullYear() + ": " + currDate.getUTCMonth() + ": "  + currDate.getUTCDate());
+        var start = new Date(currDate.getUTCFullYear(),currDate.getUTCMonth()+1,currDate.getUTCDate());
+        var end = start;
+        end.setMonth(end.getMonth() + 1);
+        console.log(end.toLocaleDateString());
+        var q = keystone.list('Post').model.find({publishedDate: {$gte: start, $lt: end}}).where('state', 'published').sort('-publishedDate');
+            q.exec(function(err, results) {
+                var monthPosts = results;
+                locals.data.calendar = results;
+                next(err);
+            });
+    })
+
 	// Render the view
 	view.render('blog');
 	

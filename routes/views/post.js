@@ -1,5 +1,6 @@
 var keystone = require('keystone'),
-	async = require('async');
+	async = require('async'),
+    helpers = require('helpers');
 
 exports = module.exports = function(req, res) {
 	
@@ -59,28 +60,18 @@ exports = module.exports = function(req, res) {
 
 	// Load other posts
 	view.on('init', function(next) {
-
 		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').limit('5');
-
 		q.exec(function(err, results) {
-			locals.data.posts = results;
+			locals.data.latest = results;
 			next(err);
 		});
-
 	});
-    var menu;
-    view.on('init', function(next) {
-        var q = keystone.list('MenuTab').model.where({
-            state: 'published'
-        });
 
-        q.exec(function(err, result) {
-            menu = result;
+    view.on('init', function(next) {
+        helpers.getMenu(function(err,result){
+           locals.data.menu = result;
             next(err);
         });
-    });
-    view.on('init', function(next) {
-
     });
 	// Render the view
 	view.render('post');

@@ -24,39 +24,9 @@ exports = module.exports = function(req, res) {
         });
 
     });
-    var menu;
     view.on('init', function(next) {
-        var q = keystone.list('MenuTab').model.where({
-            state: 'published'
-        });
-
-        q.exec(function(err, result) {
-            menu = result;
-            next(err);
-        });
-    });
-    view.on('init', function(next) {
-        var q = keystone.list('MenuLink').model.where({
-            state: 'published'
-        }).populate('menuTab');
-
-        q.exec(function(err, result) {
-            //go through menu, get menulinks for menutabs with no slug
-            _.each(menu,function(item,ndx){
-                if(item.slug != "")
-                    item.hasSubMenu = false;
-                else{
-                    item.hasSubMenu = true;
-                    var subMenuLinks = _.filter(result,function(link){
-                        return link.menuTab.name == item.name;
-                    });
-                    item.subMenuLinks = _.sortBy(subMenuLinks, function(subLink){
-                        return subLink.order;
-                    });
-                }
-
-            });
-            locals.data.menu = menu;
+        helpers.getMenu(function(err,result){
+            locals.data.menu = result;
             next(err);
         });
     });

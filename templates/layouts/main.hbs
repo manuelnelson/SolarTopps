@@ -119,19 +119,6 @@
 <script src="/js/match-height.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.responsive-calendar').responsiveCalendar({
-            time: '2013-05',
-            events: {
-                "2013-05-30": {"number": 5, "badgeClass": "background-turquoise", "url": "http://w3widgets.com/responsive-slider"},
-                "2013-05-26": {"number": 1, "badgeClass": "background-turquoise", "url": "http://w3widgets.com"},
-                "2013-05-03": {"number": 1, "badgeClass": "background-pomegranate"},
-                "2013-05-12": {}}
-        });
-
-        $('#mixit').mixitup();
-    });
-
     $(window).load(function () {
         if ($(window).width() > 767) {
             matchHeight($('.info-thumbnail .caption .description'), 3);
