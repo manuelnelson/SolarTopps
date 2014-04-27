@@ -4,11 +4,12 @@ var keystone = require('keystone'),
 var HomeThumbnail = new keystone.List('HomeThumbnail', {
     autokey: { from: 'name', path: 'key' }
 });
-
+var path = keystone.get('localfile dest path');
+console.log(path);
 HomeThumbnail.add({
     name: { type: String, required: true },
     publishedDate: { type: Date, default: Date.now },
-    image: { type: Types.CloudinaryImage },
+    image: { type: Types.LocalFile,  dest: keystone.get('localfile dest path')  },
     order: {type: Types.Number},
     content: {type: Types.Html, wysiwyg: true, height: 150 },
     active: {type: Types.Boolean},

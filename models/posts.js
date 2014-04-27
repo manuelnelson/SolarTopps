@@ -5,14 +5,15 @@ var Post = new keystone.List('Post', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 });
-
+var path = keystone.get('localfile dest path');
+console.log(path);
 Post.add({
 	title: { type: String, required: true },
 	slug: { type: String, index: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
-	image: { type: Types.CloudinaryImage },
+	image: { type: Types.LocalFile,  dest: keystone.get('localfile dest path')  },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }

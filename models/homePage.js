@@ -11,7 +11,6 @@ Home.add({
     carousel: { type: Types.CloudinaryImages },
     thumbnailTitle: {type: String},
     thumbnailContent: {type: Types.Html, wysiwyg:true},
-
     content: {type: Types.Html, wysiwyg: true, height: 400 },
 
 });
