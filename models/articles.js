@@ -15,7 +15,7 @@ Article.add({
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true },
-    image: { type: Types.CloudinaryImage },
+    image: { type: Types.LocalFile, dest: keystone.get('localfile dest path') },
     content: { type: Types.Html, wysiwyg: true, height: 150 }
 });
 
