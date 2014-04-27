@@ -1,5 +1,6 @@
 var keystone = require('keystone')
-    _ = require('underscore');
+    _ = require('underscore'),
+    helpers = require('helpers');
 
 exports = module.exports = function(req, res) {
 	

@@ -8,10 +8,10 @@ var MenuTab  = new keystone.List('MenuTab', {
 
 MenuTab.add({
     name: { type: String, required: true },
-    slug: { type: String, index: true },
+    path: { type: String, index: true },
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-    order: { type: Types.Number}
-//    categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
+    order: { type: Types.Number},
+    hasSubMenu: {type:Types.Boolean}
 });
 
 MenuTab.defaultColumns = 'title, state|20%';

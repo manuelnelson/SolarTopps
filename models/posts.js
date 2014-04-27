@@ -5,8 +5,6 @@ var Post = new keystone.List('Post', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 });
-var path = keystone.get('localfile dest path');
-console.log(path);
 Post.add({
 	title: { type: String, required: true },
 	slug: { type: String, index: true },
