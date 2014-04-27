@@ -30,6 +30,7 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
         helpers.getMenu(function(err,result){
             locals.data.menu = result;
+            locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.article.toLowerCase());
             next(err);
         });
     });

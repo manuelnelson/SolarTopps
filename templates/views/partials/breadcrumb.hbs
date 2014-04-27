@@ -1,9 +1,11 @@
 <div class="background-clouds breadcrumbs-container">
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Pages</li>
-            <li class="active">Article</li>
+            <li><a href="/">Home</a></li>
+            {{#if data.breadcrumbs.hasSubMenu}}
+                <li class="active">{{data.breadcrumbs.subMenu}}</li>
+            {{/if}}
+            <li class="active">{{data.breadcrumbs.name}}</li>
         </ol>
     </div>
 </div>
