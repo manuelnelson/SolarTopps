@@ -29,7 +29,8 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views')
+	views: importRoutes('./views'),
+    api: importRoutes('./api')
 };
 
 // Setup Route Bindings
@@ -46,7 +47,10 @@ exports = module.exports = function(app) {
     app.get('/services/:article', routes.views.article);
     app.get('/go-solar/:article', routes.views.article);
 	app.all('/contact', routes.views.contact);
-	
+
+    // API
+    app.all('/api*', keystone.initAPI);
+    app.all('/api/contact', routes.api.contact);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	

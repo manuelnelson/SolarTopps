@@ -21,63 +21,53 @@
     <![endif]-->
 </head>
 <body>
-
 {{{body}}}
 <footer class="background-midnight-blue color-white">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h3>Menu</h3>
+                <h3>Location</h3>
                 <ul class="nav-footer">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="https://maps.google.com/maps?q=solar+topps+102+S+28th+St&hl=en&ll=33.446634,-112.022148&spn=0.006419,0.013078&sll=33.446706,-112.021&sspn=0.006419,0.013078&hq=solar+topps&hnear=102+S+28th+St,+Phoenix,+Arizona+85034&t=m&z=17" target="_blank">102 S. 28th Street</a></li>
+                    <li><a href="https://maps.google.com/maps?q=solar+topps+102+S+28th+St&hl=en&ll=33.446634,-112.022148&spn=0.006419,0.013078&sll=33.446706,-112.021&sspn=0.006419,0.013078&hq=solar+topps&hnear=102+S+28th+St,+Phoenix,+Arizona+85034&t=m&z=17" target="_blank">Phoenix, Arizona 85034</a></li>
+                    <li>Phone : (480) 940-1201</li>
+                    <li>Fax : (480) 940-1206</li>
+                    <li>Email:<a href="mailto://info@solartopps.com"> info@solartopps.com</a></li>
                 </ul>
+                <a href="http://us.sunpower.com/" target="_blank"><img style="width:48%"  src="/images/SunPower-Elite-Dealer-Logo_sm.jpg"></a>
+                <a href="https://www.bbb.org/" target="_blank"><img style="width:48%; margin-left:2%;"  src="/images/bbbseal.png"></a>
             </div>
             <div class="col-md-4">
-                <h3>Testmonials</h3>
-
-                <p class="testimonial">Proin venenatis velit nibh, sit amet commodo sapien tristique at. Interdum et
-                    malesuada fames ac ante ipsum primis in faucibus. Cras bibendum erat at ultricies rhoncus.</p>
-
-                <p class="author">lkokosz</p>
-
-                <p class="testimonial">Proin venenatis velit nibh, sit amet commodo sapien tristique at. Interdum et
-                    malesuada fames ac ante ipsum primis in faucibus. Cras bibendum erat at ultricies rhoncus.</p>
-
-                <p class="author">lkokosz</p>
+                <h3>&nbsp;</h3>
+                <p>Solar Topps is a hassle-free, comprehensive solar integrator providing design, engineering, and installation solutions. With flexible options to purchase, finance or lease a system, Solar Topps offers the best products installed by the highest-qualified personnel with industry-leading warranties on workmanship, installations and products.</p>
             </div>
             <div class="col-md-5">
                 <h3>Contact us</h3>
-
-                <form class="form-horizontal" role="form">
+                <form class="contact form-horizontal" role="form" method="post" action="/api/contact/">
                     <div class="form-group">
-                        <label for="inputName1" class="col-lg-3 control-label">Name</label>
+                        <label for="name" class="col-lg-3 control-label">Name</label>
 
                         <div class="col-lg-9">
-                            <input type="text" class="form-control input-lg" id="inputName1" placeholder="Name">
+                            <input type="text" class="form-control input-lg" id="name" name="name" placeholder="Name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail1" class="col-lg-3 control-label">Email</label>
+                        <label for="email" class="col-lg-3 control-label">Email</label>
 
                         <div class="col-lg-9">
-                            <input type="email" class="form-control input-lg" id="inputEmail1" placeholder="Email">
+                            <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputContent1" class="col-lg-3 control-label">Content</label>
+                        <label for="message" class="col-lg-3 control-label">Content</label>
 
                         <div class="col-lg-9">
-                            <textarea id="inputContent1" class="form-control" rows="3"></textarea>
+                            <textarea id="message" name="message" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-9">
-                            <button type="submit" class="btn btn-lead btn-lg">Send us an email</button>
+                            <button type="submit" id="submit-contact" class="btn btn-lead btn-lg">Send us an email</button>
                         </div>
                     </div>
                 </form>
@@ -88,15 +78,15 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
-                        All rights reserved &copy; 2013 <a href="http://w3widgets.com">w3widgets.com</a>
+                        All rights reserved &copy; 2014 <a href="http://solartopps.com">Solar Topps LLC.</a>
                     </div>
                     <div class="col-md-6">
                         <p class="social">
-                            <a href="/"><span class="fa fa-facebook"></span></a>
-                            <a href="/"><span class="fa fa-twitter"></span></a>
-                            <a href="/"><span class="fa fa-youtube"></span></a>
-                            <a href="/"><span class="fa fa-linkedin"></span></a>
-                            <a href="/"><span class="fa fa-pinterest"></span></a>
+                            <a href="https://www.facebook.com/SolarTopps"><span class="fa fa-facebook"></span></a>
+                            <a href="https://twitter.com/solartopps"><span class="fa fa-twitter"></span></a>
+                            <a href="https://www.youtube.com/user/SolarTopps"><span class="fa fa-youtube"></span></a>
+                            <a href="https://www.linkedin.com/vsearch/p?company=Solar+Topps+LLC&trk=prof-exp-company-name"><span class="fa fa-linkedin"></span></a>
+                            <a href="https://plus.google.com/100022574091548887877/about"><span class="fa fa-google-plus"></span></a>
                         </p>
                     </div>
                 </div>
@@ -129,6 +119,27 @@
                 $('.info-thumbnail .caption .description').height('auto');
                 matchHeight($('.info-thumbnail .caption .description'), 3);
             }
+        });
+        $('#submit-contact').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: '/api/contact',
+                type:'POST',
+                data: {
+                   name: $('form.contact #name').val(),
+                   email: $('form.contact #email').val(),
+                   message: $('form.contact #message').val()
+                },
+                success:function(result){
+                    if(result.success){
+                        $('form.contact').hide();
+                        $('form.contact').after('<p>Thanks for contacting us.  We will get back to you as soon as possible.</p>');
+                    }
+                },
+                error:function(){
+                    $('form.contact').before('<p>There was an error processing your message.  Please try sending again.</p>');
+                }
+            })
         });
     });
 </script>

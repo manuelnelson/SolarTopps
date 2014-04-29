@@ -1,0 +1,16 @@
+<h1>Email from Solar Topps - Contact</h1>
+<p>An E-mail was just submitted to Solar Topps From:
+    {{#if enquiry.name}}
+            <strong>{{enquiry.name}}</strong>
+    {{/if}}
+    {{#if enquiry.email}}
+        <a href="mailto:{{enquiry.email}}">{{enquiry.email}}</a>
+    {{/if}}
+</p>
+{{#if enquiry.phone}}
+    <p>Phone: {{enquiry.phone}}</p>
+{{/if}}
+{{#if enquiry.message}}
+    {{{enquiry.message}}}
+{{/if}}
+<p>Sent {{enquiry.createdAt}}</p>

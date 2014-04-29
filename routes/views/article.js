@@ -34,7 +34,33 @@ exports = module.exports = function(req, res) {
             next(err);
         });
     });
-        // Render the view
+//    // On POST requests, add the Enquiry item to the database
+//    view.on('post', { action: 'article' }, function(next) {
+//
+//        var application = new Enquiry.model();
+//        application.name = req.body.name;
+//        application.email = req.body.email;
+//        appplication.message = req.body.message;
+//        application.save();
+//        next();
+////            updater = application.getUpdateHandler(req);
+////
+////        updater.process(req.body, {
+////            flashErrors: true,
+////            fields: 'name, email, phone, enquiryType, message',
+////            errorMessage: 'There was a problem submitting your enquiry:'
+////        }, function(err) {
+////            if (err) {
+////                locals.validationErrors = err.errors;
+////            } else {
+////                locals.enquirySubmitted = true;
+////            }
+////            next();
+////        });
+//
+//    });
+
+    // Render the view
     view.render('article');
 
 }
