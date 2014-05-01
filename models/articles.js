@@ -16,7 +16,9 @@ Article.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true },
     image: { type: Types.LocalFile, dest: keystone.get('localfile dest path') },
-    content: { type: Types.Html, wysiwyg: true, height: 150 }
+    content: { type: Types.Html, wysiwyg: true, height: 150 },
+    seoKeywords: {type: String},
+    seoDescription: {type: String}
 });
 
 Article.schema.virtual('content.full').get(function() {

@@ -23,14 +23,22 @@ exports = module.exports = function(req, res) {
 
         q.exec(function(err, result) {
             locals.data.article = result;
+            locals.data.seo = {
+                description: result.seoDescription,
+                keywords: result.seoKeywords,
+                title: result.title,
+                date: result.publishedDate,
+                type: 'article'
+            };
             next(err);
         });
 
     });
     view.on('init', function(next) {
-        helpers.getMenu(function(err,result){
+        helpers.getMenu(locals.filters.article.toLowerCase(), function(err,result){
             locals.data.menu = result;
             locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.article.toLowerCase());
+            locals.data.sideMenu = helpers.getActiveSubmenu(result,locals.data.breadcrumbs);
             next(err);
         });
     });

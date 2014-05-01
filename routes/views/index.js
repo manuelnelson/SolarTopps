@@ -23,10 +23,26 @@ exports = module.exports = function(req, res) {
             locals.data.thumbnails = result;
             next(err);
         });
-
     });
     view.on('init', function(next) {
-        helpers.getMenu(function(err,result){
+        var q = keystone.list('HomePage').model.findOne({
+            active: 'true'
+        });
+        q.exec(function(err, result) {
+            locals.data.home = result;
+            locals.data.seo = {
+                description: result.seoDescription,
+                keywords: result.seoKeywords,
+                title: 'Home',
+                date: result.publishedDate,
+                type: 'Home'
+            };
+            next(err);
+        });
+    });
+
+    view.on('init', function(next) {
+        helpers.getMenu('',function(err,result){
             locals.data.menu = result;
             next(err);
         });

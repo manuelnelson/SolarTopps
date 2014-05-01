@@ -44,7 +44,7 @@ exports = module.exports = function(req, res) {
 
 	});
     view.on('init', function(next) {
-        helpers.getMenu(function(err,result){
+        helpers.getMenu('',function(err,result){
             locals.data.menu = result;
             next(err);
         });

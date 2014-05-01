@@ -12,7 +12,8 @@ Home.add({
     thumbnailTitle: {type: String},
     thumbnailContent: {type: Types.Html, wysiwyg:true},
     content: {type: Types.Html, wysiwyg: true, height: 400 },
-
+    seoKeywords: {type: String},
+    seoDescription: {type: String}
 });
 
 Home.register();
