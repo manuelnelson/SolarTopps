@@ -21,7 +21,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 {{#each subMenuLinks}}
-                                    <li><a href="/{{folder}}/{{path}}">{{title}}</a></li>
+                                    {{#if isExternal}}
+                                        <li><a href="/{{path}}">{{title}}</a></li>
+                                    {{else}}
+                                        <li><a href="/{{folder}}/{{path}}">{{title}}</a></li>
+                                    {{/if}}
                                 {{/each}}
                             </ul>
                         {{else}}
