@@ -37,9 +37,9 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 			to: admins,
 			from: {
 				name: 'Solar Topps',
-				email: 'elnels@gmail.com'
+				email: 'robby@solartopps.com'
 			},
-			subject: 'New Enquiry for SolarTopps',
+			subject: 'New Enquiry for Solar Topps',
 			enquiry: enqiury
 		}, callback);
 		
