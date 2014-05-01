@@ -25,18 +25,19 @@ exports = module.exports = function(req, res) {
         });
     });
     view.on('init', function(next) {
-        var q = keystone.list('HomePage').model.findOne({
-            active: 'true'
-        });
+        var q = keystone.list('Home').model.find({}).limit('1');
         q.exec(function(err, result) {
-            locals.data.home = result;
-            locals.data.seo = {
-                description: result.seoDescription,
-                keywords: result.seoKeywords,
-                title: 'Home',
-                date: result.publishedDate,
-                type: 'Home'
-            };
+            var home = result[0];
+            locals.data.home = home;
+            if(result){
+                locals.data.seo = {
+                    description: home.seoDescription,
+                    keywords: home.seoKeywords,
+                    title: 'Home',
+                    date: home.publishedDate,
+                    type: 'Home'
+                };
+            }
             next(err);
         });
     });

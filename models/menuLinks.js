@@ -12,7 +12,8 @@ MenuLink.add({
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     publishedDate: { type: Types.Date, index: true },
     menuTab: { type: Types.Relationship, ref: 'MenuTab', many: false, index: true },
-    order: { type: Types.Number}
+    order: { type: Types.Number},
+    isExternal: {type: Types.Boolean}
 });
 
 
