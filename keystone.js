@@ -100,7 +100,8 @@ keystone.set('nav', {
 	'users': 'users',
     'menuTabs': 'menu-tabs',
     'menuLinks': 'menu-links',
-    'articles': 'articles'
+    'articles': 'articles',
+    'forms': 'forms'
 });
 
 // Start Keystone to connect to your database and initialise the web server
