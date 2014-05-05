@@ -33,13 +33,14 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
-    'localfile dest path': 'C:\\Mine\\Development\\solartopps\\public\\uploadedimages\\'
+    'localfile dest path': 'C:\\Development\\solartopps\\public\\uploadedimages\\'
 
 });
 
 // Load your project's Models
 keystone.import('models');
 keystone.set('wysiwyg additional buttons', 'styleselect');
+keystone.set('wysiwyg images', 'true');
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
