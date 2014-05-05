@@ -19,6 +19,8 @@ Form.add({
     image: { type: Types.LocalFile, dest: keystone.get('localfile dest path') },
     content: { type: Types.Html, wysiwyg: true, height: 150 },
     form: { type: Types.Html, wysiwyg: true, height: 150 },
+    emailMessage: {type: Types.Html, wysiwyg: true, height: 150},
+    emailRecipeints: {type: Types.Relationship, ref: 'User', many:true},
     seoKeywords: {type: String},
     seoDescription: {type: String}
 });

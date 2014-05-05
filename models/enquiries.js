@@ -1,4 +1,5 @@
 var keystone = require('keystone'),
+    exphbs  = require('express3-handlebars'),
 	Types = keystone.Field.Types;
 
 var Enquiry = new keystone.List('Enquiry', {
@@ -37,7 +38,7 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 			to: admins,
 			from: {
 				name: 'Solar Topps',
-				email: 'robby@solartopps.com'
+				email: 'elnels@gmail.com'
 			},
 			subject: 'New Enquiry for Solar Topps',
 			enquiry: enqiury

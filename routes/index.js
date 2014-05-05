@@ -45,6 +45,7 @@ exports = module.exports = function(app) {
     app.get('/company/:article', routes.views.article);
     app.get('/resources/:article', routes.views.article);
     app.get('/resources/forms/:form', routes.views.form);
+    app.get('/forms/:form', routes.views.form);
     app.get('/services/:article', routes.views.article);
     app.get('/go-solar/:article', routes.views.article);
 	app.all('/contact', routes.views.contact);

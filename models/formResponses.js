@@ -27,18 +27,24 @@ FormResponse.schema.methods.sendNotificationEmail = function(callback) {
 
     var enqiury = this;
 
-    keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
+    keystone.list('Form').model.find().where('slug', this.form).exec(function(err, form) {
 
         if (err) return callback(err);
 
-        new keystone.Email('enquiry-notification').send({
-            to: admins,
+        new keystone.Email({
+            templateName: 'email-form',
+            templateExt: '.hbs'
+        }).send({
+            to: form[0].emailRecipeints,
             from: {
                 name: 'Solar Topps',
-                email: 'robby@solartopps.com'
+                email: 'elnels@gmail.com'
             },
             subject: 'Form for Solar Topps',
-            enquiry: enqiury
+            enquiry: {
+                form: form[0],
+                data: enqiury
+            }
         }, callback);
 
     });
