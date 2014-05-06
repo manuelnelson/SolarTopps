@@ -1,0 +1,8 @@
+<h1>Email from Solar Topps - Form</h1>
+{{enquiry.form.emailMessage}}
+<p>Form name: {{enquiry.form.title}} <br>
+    {{#each enquiry.data.response}}
+        {{name}}: {{value}}<br>
+    {{/each}}
+</p>
+<p>Sent {{enquiry.data.createdAt}}</p>

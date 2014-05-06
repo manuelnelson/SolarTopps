@@ -1,4 +1,7 @@
 /**
+ * Created by elnel_000 on 5/2/2014.
+ */
+/**
  * Created by elnel_000 on 4/14/2014.
  */
 var keystone = require('keystone'),
@@ -9,41 +12,41 @@ exports = module.exports = function(req, res) {
     var locals = res.locals,
         view = new keystone.View(req, res);
     locals.filters = {
-        article: req.params.article
+        form: req.params.form
     };
     locals.data = { };    // Set locals
-    locals.section = 'article';
+    locals.section = 'form';
     // Load the current post
     view.on('init', function(next) {
 
-        var q = keystone.list('Article').model.findOne({
+        var q = keystone.list('Form').model.findOne({
             state: 'published',
-            slug: locals.filters.article
-        }).populate('author');
+            slug: locals.filters.form
+        });
 
         q.exec(function(err, result) {
-            locals.data.article = result;
+            locals.data.form = result;
             locals.data.seo = {
                 description: result.seoDescription,
                 keywords: result.seoKeywords,
                 title: result.title,
-                date: result.publishedDate,
-                type: 'article'
+                type: 'form'
             };
             next(err);
         });
 
     });
     view.on('init', function(next) {
-        helpers.getMenu(locals.filters.article.toLowerCase(), function(err,result){
+        helpers.getMenu(locals.filters.form.toLowerCase(), function(err,result){
             locals.data.menu = result;
-            locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.article.toLowerCase());
+            locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.form.toLowerCase());
             locals.data.sideMenu = helpers.getActiveSubmenu(result,locals.data.breadcrumbs);
             next(err);
         });
     });
 
+
     // Render the view
-    view.render('article');
+    view.render('form');
 
 }

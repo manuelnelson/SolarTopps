@@ -2,10 +2,18 @@
     <div class="list-group bright background-clouds color-text">
         <div class="list-group-item"><h3>Menu</h3></div>
         {{#each data.sideMenu}}
-            {{#if isActive}}
-                <a href="{{path}}" class="list-group-item active">{{title}}</a>
+            {{#if isExternal}}
+                {{#if isActive}}
+                    <a href="/{{path}}" class="list-group-item active">{{title}}</a>
+                {{else}}
+                    <a href="/{{path}}" class="list-group-item">{{title}}</a>
+                {{/if}}
             {{else}}
-                <a href="{{path}}" class="list-group-item">{{title}}</a>
+                {{#if isActive}}
+                    <a href="/{{folder}}/{{path}}" class="list-group-item active">{{title}}</a>
+                {{else}}
+                    <a href="/{{folder}}/{{path}}" class="list-group-item">{{title}}</a>
+                {{/if}}
             {{/if}}
         {{/each}}
     </div>

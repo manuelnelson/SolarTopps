@@ -44,6 +44,8 @@ exports = module.exports = function(app) {
     app.get('/testimonials/:article', routes.views.article);
     app.get('/company/:article', routes.views.article);
     app.get('/resources/:article', routes.views.article);
+    app.get('/resources/forms/:form', routes.views.form);
+    app.get('/forms/:form', routes.views.form);
     app.get('/services/:article', routes.views.article);
     app.get('/go-solar/:article', routes.views.article);
 	app.all('/contact', routes.views.contact);
@@ -51,6 +53,7 @@ exports = module.exports = function(app) {
     // API
     app.all('/api*', keystone.initAPI);
     app.all('/api/contact', routes.api.contact);
+    app.all('/api/form', routes.api.form);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
