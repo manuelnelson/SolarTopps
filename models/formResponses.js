@@ -25,16 +25,13 @@ FormResponse.schema.post('save', function() {
 
 FormResponse.schema.methods.sendNotificationEmail = function(callback) {
 
-    var enqiury = this;
+    var enquiry = this;
 
-    keystone.list('Form').model.find().where('slug', this.form).exec(function(err, form) {
+    keystone.list('Form').model.find().where('slug', this.form).populate('emailRecipeints').exec(function(err, form) {
 
         if (err) return callback(err);
-
-        new keystone.Email({
-            templateName: 'email-form',
-            templateExt: '.hbs'
-        }).send({
+        enquiry.responseJson = JSON.parse(enquiry.response);
+        new keystone.Email('email-form').send({
             to: form[0].emailRecipeints,
             from: {
                 name: 'Solar Topps',
@@ -43,7 +40,7 @@ FormResponse.schema.methods.sendNotificationEmail = function(callback) {
             subject: 'Form for Solar Topps',
             enquiry: {
                 form: form[0],
-                data: enqiury
+                data: enquiry
             }
         }, callback);
 
