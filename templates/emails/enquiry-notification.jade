@@ -1,23 +1,21 @@
 extends /layouts/default
 block body-contents
-    h1 Hi *|first_name|*,
-    p.text-larger An enquiry was just submitted to #{brand}:
+    h1 Email from Solar Topps - Contact
+    p.text-larger An enquiry was just submitted to Solar Topps:
     if enquiry.name.full || enquiry.email
-        p.text-larger From
-            if enquiry.name.full
-                | <strong>#{enquiry.name.full}</strong>
-            if enquiry.name.full && enquiry.email
+        p.text-larger From:&nbsp;
+            if enquiry.name
+                | <strong>#{enquiry.name}</strong>&nbsp;
+            if enquiry.name && enquiry.email
                 | (
             if enquiry.email
                 | <a href="mailto:#{enquiry.email}">#{enquiry.email}</a>
-            if enquiry.name.full && enquiry.email
+            if enquiry.name && enquiry.email
                 | )
     if enquiry.phone
         p.text-larger Phone: #{enquiry.phone}
-    if enquiry.enquiryType
-        p.text-larger #{enquiry._.enquiryType.format()}
     if enquiry.message
-        .text-larger !{enquiry.message.html}
+        .text-larger !{enquiry.message}
     p.text-muted Sent #{enquiry._.createdAt.format()}
     p &nbsp;
     +button({ url: '/keystone/enquiries/' + enquiry.id, label: 'Open Keystone' })
