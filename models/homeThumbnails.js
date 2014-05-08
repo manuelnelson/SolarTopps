@@ -12,7 +12,8 @@ HomeThumbnail.add({
     order: {type: Types.Number},
     content: {type: Types.Html, wysiwyg: true, height: 150 },
     active: {type: Types.Boolean},
-    moreUrl: {type: Types.Url}
+    moreUrl: {type: Types.Url},
+    icon: {type: String}
 });
 
 HomeThumbnail.register();

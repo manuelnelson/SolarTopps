@@ -1,0 +1,11 @@
+extends /layouts/default
+block body-contents
+    h1 Email from Solar Topps - Form
+    if enquiry.form.emailMessage
+        div !{enquiry.form.emailMessage}
+    p Form name: #{enquiry.form.title} <ul>
+        each nameValues in enquiry.data.responseJson
+            li #{nameValues.name}: #{nameValues.value}
+    p.text-muted Sent #{enquiry.data._.createdAt.format()}
+    p &nbsp;
+    +button({ url: '/keystone/enquiries/' + enquiry.id, label: 'Open Keystone' })
