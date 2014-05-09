@@ -3,47 +3,28 @@
 <div class="responsive-slider-parallax" data-spy="responsive-slider" data-parallax="true" data-parallax-direction="-1" data-transitiontime="1000" data-autoplay="true">
     <div class="slides-container" data-group="slides">
         <ul>
-            <li>
-                <div class="slide-body" data-group="slide">
-                    <div class="container">
-                        <div class="wrapper">
-                            <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="0" data-length="300">
-                                <h2>Neat theme</h2>
-                                <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="300" data-length="300"><span>Clean and modern design</span></p>
-                                <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="500" data-length="300"><span>Lightweight</span></p>
-                                <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="700" data-length="300"><span>Standards compliant</span></p>
+            {{#each data.carouselSlides}}
+                <li>
+                    <div class="slide-body" data-group="slide">
+                        <div class="container">
+                            <div class="wrapper">
+                                <div class="caption header" data-animate="{{oppositeAnimation}}" data-delay="0" data-length="300">
+                                    <h2>{{heading}}</h2>
+                                    {{#if firstText}}
+                                        <p class="sub text-left" data-animate="{{animation}}" data-delay="300" data-length="300"><span>{{firstText}}</span></p>
+                                    {{/if}}
+                                    {{#if secondText}}
+                                        <p class="sub text-left" data-animate="{{animation}}" data-delay="500" data-length="300"><span>{{secondText}}</span></p>
+                                    {{/if}}
+                                    {{#if thirdText}}
+                                        <p class="sub text-left" data-animate="{{animation}}" data-delay="700" data-length="300"><span>{{thirdText}}</span></p>
+                                    {{/if}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <div class="slide-body" data-group="slide">
-                    <div class="container">
-                        <div class="wrapper">
-                            <div class="caption header text-center" data-animate="slideAppearUpToDown" data-delay="0" data-length="300">
-                                <h2>Twitter Boostrap</h2>
-                                <p class="sub" data-animate="slideAppearDownToUp" data-delay="300" data-length="300"><span>Compatible with version 3</span></p>
-                                <p class="sub" data-animate="slideAppearDownToUp" data-delay="500" data-length="300"><span>Perfectly compatible with grid system</span></p>
-                                <p class="sub" data-animate="slideAppearDownToUp" data-delay="700" data-length="300"><span>Bootstrap compatible Slider and Calendar plugins</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="slide-body" data-group="slide">
-                    <div class="container">
-                        <div class="wrapper">
-                            <div class="caption header text-right" data-animate="slideAppearDownToUp" data-delay="0" data-length="300">
-                                <h2>Html <span style="font-weight: 300"><span class="color-alizarin">c</span><span class="color-carrot">o</span><span class="color-sun-flower">l</span><span class="color-emerald">o</span><span class="color-peter-river">r</span></span> classes</h2>
-                                <p class="sub" data-animate="slideAppearUpToDown" data-delay="300" data-length="300"><span>"Flat UI" colors palette</span></p>
-                                <p class="sub" data-animate="slideAppearUpToDown" data-delay="500" data-length="300"><span>Made to modify any layout element</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+                </li>
+            {{/each}}
         </ul>
     </div>
     <a class="slider-control left hidden-xs hidden-sm" href="#" data-jump="prev"><i class="fa fa-angle-left"></i></a>
@@ -73,7 +54,7 @@
                             <div class="icon">
                             <span class="fa-stack">
                               <i class="fa fa-circle fa-stack-2x color-lead"></i>
-                              <i class="fa fa-flag fa-stack-1x color-white"></i>
+                              <i class="fa {{icon}} fa-stack-1x color-white"></i>
                             </span>
                             </div>
                             <div class="caption bordered background-white">

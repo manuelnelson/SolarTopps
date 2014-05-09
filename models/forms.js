@@ -20,6 +20,7 @@ Form.add({
     content: { type: Types.Html, wysiwyg: true, height: 150 },
     form: { type: Types.Html, wysiwyg: true, height: 150 },
     emailMessage: {type: Types.Html, wysiwyg: true, height: 150},
+    confirmationMessage: {type: Types.Html, wysiwyg: true, height: 150},
     emailRecipeints: {type: Types.Relationship, ref: 'User', many:true},
     seoKeywords: {type: String},
     seoDescription: {type: String}

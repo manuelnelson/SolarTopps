@@ -25,6 +25,26 @@ exports = module.exports = function(req, res) {
         });
     });
     view.on('init', function(next) {
+        var q = keystone.list('HomeCarouselSlide').model.find({
+        }).sort('order');
+        q.exec(function(err, result) {
+            _.each(result,function(slide){
+                switch (slide.animation){
+                    case "slideAppearLeftToRight":
+                        slide.oppositeAnimation = "slideAppearRightToLeft";
+                    case "slideAppearRightToLeft":
+                        slide.oppositeAnimation = "slideAppearLeftToRight";
+                    case "slideAppearUpToDown":
+                        slide.oppositeAnimation = "slideAppearDownToUp";
+                    case "slideAppearDownToUp":
+                        slide.oppositeAnimation = "slideAppearUpToDown";
+                }
+            });
+            locals.data.carouselSlides = result;
+            next(err);
+        });
+    });
+    view.on('init', function(next) {
         var q = keystone.list('Home').model.find({}).limit('1');
         q.exec(function(err, result) {
             var home = result[0];
