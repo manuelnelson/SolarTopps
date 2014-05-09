@@ -35,12 +35,12 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 		if (err) return callback(err);
 		
 		new keystone.Email('enquiry-notification').send({
-			to: admins,
+			to: 'joan@solartopps.com',
 			from: {
 				name: 'Solar Topps',
-				email: 'elnels@gmail.com'
+				email: 'robby@solartopps.com'
 			},
-			subject: 'New Enquiry for Solar Topps',
+			subject: 'Contact Us from Solar Topps',
 			enquiry: enqiury
 		}, callback);
 		
