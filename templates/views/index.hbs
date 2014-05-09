@@ -1,6 +1,6 @@
 {{> navigation}}
 <!-- Responsive slider - START -->
-<div class="responsive-slider-parallax" data-spy="responsive-slider" data-parallax="true" data-parallax-direction="-1" data-transitiontime="1000" data-autoplay="true">
+<div class="responsive-slider-parallax" data-spy="responsive-slider" data-parallax="false" data-transitiontime="1000" data-autoplay="true">
     <div class="slides-container" data-group="slides">
         <ul>
             {{#each data.carouselSlides}}
@@ -9,6 +9,7 @@
                         <div class="container">
                             <div class="wrapper">
                                 <div class="caption header" data-animate="{{oppositeAnimation}}" data-delay="0" data-length="300">
+                                    <img src="{{localFile image.path}}/{{image.filename}}" alt="...">
                                     <h2>{{heading}}</h2>
                                     {{#if firstText}}
                                         <p class="sub text-left" data-animate="{{animation}}" data-delay="300" data-length="300"><span>{{firstText}}</span></p>
