@@ -5,7 +5,7 @@ require('dotenv')().load();
 // Require keystone
 var keystone = require('keystone'),
     exphbs  = require('express3-handlebars'),
-    helpers = require('helpers');
+    helpers = require("./helpers");
 
 
 // Initialise Keystone with your project's configuration.

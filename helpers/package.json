@@ -1,0 +1,30 @@
+{
+  "name": "helpers",
+  "description": "Helper library.",
+  "homepage": "http://underscorejs.org",
+  "keywords": [
+    "util"
+  ],
+  "author": {
+    "name": "Emmanuel Nelson",
+    "email": "info@emmanuelnelson.com"
+  },
+  "main": "helpers.js",
+  "version": "1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/jashkenas/underscore/master/LICENSE"
+    }
+  ],
+  "files": [
+    "helpers.js"
+  ],
+  "readme": "",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jashkenas/underscore/issues"
+  },
+  "_id": "helpers@1",
+  "_from": "helpers@1"
+}

@@ -3,7 +3,7 @@
  */
 var keystone = require('keystone'),
     _ = require('underscore'),
-    helpers = require('helpers');
+    helpers = require("../../helpers");
 exports = module.exports = function(req, res) {
 
     var locals = res.locals,
