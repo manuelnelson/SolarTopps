@@ -83,7 +83,7 @@ exports.getBreadcrumbs = function(menu, url, pageTitle){
 }
 
 exports.getActiveSubmenu = function(menu, breadCrumbs) {
-    if (breadCrumbs.hasSubMenu) {
+    if (breadCrumbs && breadCrumbs.hasSubMenu) {
         //we have side menu
         //Get all menu links with submenu name
         var activeMenuTab = _.find(menu, function (menuItem) {
