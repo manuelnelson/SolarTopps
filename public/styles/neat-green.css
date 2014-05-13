@@ -48,7 +48,7 @@
   color: #fff;
 }
 .responsive-slider-parallax .slides-container ul li .slide-body .caption.header {
-  top: 27%;
+  /*top: 27%;*/
   width: 100%;
 }
 .responsive-slider-parallax .slides-container ul li .slide-body .caption.header h2 {
