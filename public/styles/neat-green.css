@@ -129,21 +129,25 @@
 @media (min-width: 1200px) {
   .responsive-slider-parallax .slides-container ul li .slide-body {
     height: 480px;
+    background-color:#2c3e50;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .responsive-slider-parallax .slides-container ul li .slide-body {
     height: 300px;
+    background-color:#2c3e50;
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
   .responsive-slider-parallax .slides-container ul li .slide-body {
     height: 220px;
+      background-color:#2c3e50;
   }
 }
 @media (max-width: 480px) {
   .responsive-slider-parallax .slides-container ul li .slide-body {
     height: 150px;
+      background-color:#2c3e50;
   }
 }
 .responsive-slider-parallax .slider-control {
