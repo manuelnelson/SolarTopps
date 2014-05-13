@@ -9,6 +9,7 @@ HomeCarouselSlide.add({
     name: { type: String, required: true },
     publishedDate: { type: Date, default: Date.now },
     image: { type: Types.LocalFile,  dest: keystone.get('localfile dest path')  },
+    tempImagePath: { type: String },
     order: {type: Types.Number},
     heading: {type: Types.Text},
     firstText: {type: Types.Text},
