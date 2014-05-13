@@ -7,9 +7,11 @@ exports.dateFormat = function (dateString) {
     return new Date(dateString).toDateString();
 };
 exports.localFile = function (path) {
-    var split = path.split('public');
-    if(split.length>0)
-        return split[1];
+    if(path){
+        var split = path.split('public');
+        if(split.length>0)
+            return split[1];
+    }
 };
 
 exports.getMenu = function(pageTitle, callback){
