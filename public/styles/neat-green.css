@@ -622,7 +622,7 @@ h4.text-right {
   padding-bottom: 30px;
   -webkit-transition: padding .5s;
   transition: padding .5s;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   /*&:after {
 					content: "";
