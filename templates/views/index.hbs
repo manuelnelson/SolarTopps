@@ -70,6 +70,29 @@
                 </div>
             {{/each}}
         </div>
+        <div class="row">
+            {{#each data.thumbnailsSetTwo}}
+                <div class="col-sm-4 col-md-4">
+                    <div class="info-thumbnail-link">
+                        <div class="thumbnail info-thumbnail with-icon background-clouds color-text">
+                            <!--<img src="{{localFile image.path}}/{{image.filename}}" alt="...">-->
+                            <img src="{{tempImagePath}}" alt="...">
+                            <div class="icon">
+                            <span class="fa-stack">
+                              <i class="fa fa-circle fa-stack-2x color-lead"></i>
+                              <i class="fa {{icon}} fa-stack-1x color-white"></i>
+                            </span>
+                            </div>
+                            <div class="caption bordered background-white">
+                                <h3>{{name}}</h3>
+                                {{{content}}}
+                                <p class="buttons"><a href="{{moreUrl}}" class="btn btn-lead">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
 </section>
 <!-- Info thumbnails - END -->
