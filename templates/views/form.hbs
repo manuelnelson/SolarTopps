@@ -46,5 +46,11 @@
             })
         });
         $('.datetimepicker').datetimepicker();
+        $('.input-group-btn ul li a').click(function(e){
+            e.preventDefault();
+            var $this = $(this);
+            var currVal = $this.parents('.input-group').find('input').val();
+            $this.parents('.input-group').find('input').val(currVal + ' ' + $this.text());
+        });
     });
 </script>

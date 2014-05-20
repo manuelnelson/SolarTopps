@@ -82,10 +82,10 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
 	find: '/images/',
-	replace: (keystone.get('env') == 'production') ? 'http://solartopps.com/images/' : 'http://localhost/solart/images/'
+	replace: (keystone.get('env') == 'production') ? 'http://solartopps.herokuapp.com/images/' : 'http://localhost/solart/images/'
 }, {
 	find: '/keystone/',
-	replace: (keystone.get('env') == 'production') ? 'http://solartopps.com/keystone/' : 'http://localhost/solart/keystone/'
+	replace: (keystone.get('env') == 'production') ? 'http://solartopps.herokuapp.com/keystone/' : 'http://localhost/solart/keystone/'
 }]);
 
 // Load your project's email test routes
