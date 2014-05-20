@@ -8,7 +8,6 @@ var keystone = require('keystone'),
     _ = require('underscore'),
     helpers =  require("../../helpers");
 exports = module.exports = function(req, res) {
-
     var locals = res.locals,
         view = new keystone.View(req, res);
     locals.filters = {
@@ -23,9 +22,12 @@ exports = module.exports = function(req, res) {
             state: 'published',
             slug: locals.filters.form
         });
-
         q.exec(function(err, result) {
             locals.data.form = result;
+            if(!result){
+                res.status(404).render('errors/404');
+                return;
+            }
             locals.data.seo = {
                 description: result.seoDescription,
                 keywords: result.seoKeywords,

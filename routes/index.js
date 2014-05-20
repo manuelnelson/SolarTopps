@@ -25,6 +25,7 @@ var _ = require('underscore'),
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
+keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
@@ -32,6 +33,20 @@ var routes = {
 	views: importRoutes('./views'),
     api: importRoutes('./api')
 };
+// Handle 404 errors
+keystone.set('404', function(req, res, next) {
+    res.notfound();
+});
+
+// Handle other errors
+keystone.set('500', function(err, req, res, next) {
+    var title, message;
+    if (err instanceof Error) {
+        message = err.message;
+        err = err.stack;
+    }
+    res.err(err, title, message);
+});
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
@@ -40,7 +55,6 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
     app.get('/testimonials/:article', routes.views.article);
     app.get('/company/:article', routes.views.article);
     app.get('/resources/:article', routes.views.article);

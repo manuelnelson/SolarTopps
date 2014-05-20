@@ -25,6 +25,10 @@ exports = module.exports = function(req, res) {
 		}).populate('author categories');
 
 		q.exec(function(err, result) {
+            if(!result){
+                res.status(404).render('errors/404');
+                return;
+            }
 			locals.data.post = result;
             locals.data.seo = {
                 description: result.seoDescription,

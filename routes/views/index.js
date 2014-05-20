@@ -17,10 +17,12 @@ exports = module.exports = function(req, res) {
 
         var q = keystone.list('HomeThumbnail').model.where({
             active: 'true'
-        }).sort('order').limit('3');
+        }).sort('order').limit('6');
 
         q.exec(function(err, result) {
-            locals.data.thumbnails = result;
+            locals.data.thumbnails = result.slice(0,3);
+            if(result.length == 6)
+                locals.data.thumbnailsSetTwo = result.slice(3,6);
             next(err);
         });
     });
