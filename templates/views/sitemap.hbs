@@ -1,0 +1,36 @@
+{{> navigation}}
+<div class="background-clouds breadcrumbs-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Sitemap</li>
+        </ol>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="content">
+                <h1><span>Pages</span></h1>
+                <ul>
+                    {{#each data.articles}}
+                        <li><a href="/resources/{{slug}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+                <h1><span>Posts</span></h1>
+                <ul>
+                    {{#each data.posts}}
+                        <li><a href="/blog/post/{{slug}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+                <h1><span>Forms</span></h1>
+                <ul>
+                    {{#each data.forms}}
+                        <li><a href="/forms/{{slug}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

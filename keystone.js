@@ -19,7 +19,7 @@ keystone.init({
 	
 	'less': 'public',
 	'static': 'public',
-	'favicon': 'public/favicon.ico',
+	'favicon': 'public/favicon.png',
 	
 	'views': 'templates/views',
     'custom engine': exphbs({defaultLayout: 'main',layoutsDir:'templates/layouts',partialsDir:'templates/views/partials',extname:'.hbs', helpers: helpers}),
