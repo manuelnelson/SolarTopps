@@ -53,7 +53,7 @@ exports = module.exports = function(req, res) {
         });
     });
     view.on('init', function(next) {
-        helpers.getMenu(locals.filters.article.toLowerCase(), function(err,result){
+        helpers.getMenu('sitemap', function(err,result){
             locals.data.menu = result;
             next(err);
         });
