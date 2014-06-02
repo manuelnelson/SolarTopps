@@ -27,6 +27,8 @@ exports = module.exports = function(req, res) {
                 return;
             }
             locals.data.article = result;
+            if(result.title)
+                locals.data.title = result.title;
             locals.data.seo = {
                 description: result.seoDescription,
                 keywords: result.seoKeywords,
@@ -38,6 +40,7 @@ exports = module.exports = function(req, res) {
         });
 
     });
+
     view.on('init', function(next) {
         helpers.getMenu(locals.filters.article.toLowerCase(), function(err,result){
             locals.data.menu = result;

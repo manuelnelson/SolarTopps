@@ -31,6 +31,7 @@ keystone.init({
 	
 	'session': true,
 	'auth': true,
+    'port': 8020,
 	'user model': 'User',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
     'localfile dest path': 'C:\\Development\\solartopps\\public\\uploadedimages\\'
