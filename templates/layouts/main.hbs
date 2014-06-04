@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-4">
                 <h3>About Us</h3>
-                <p>Solar Topps Arizona's premier all-in-one solar company and largest SunPower Elite Dealer. With flexible options to purchase, finance or lease a solar system, we offer the best products installed by the highest-qualified personnel with industry-leading warranties on workmanship, installation and products. Our in-house team of solar experts provide you a single point of contact and accountability, making it easy and hassle-free to go solar. </p>
+                <p>Solar Topps is Arizona's premier all-in-one solar company and largest SunPower Elite Dealer. With flexible options to purchase, finance or lease a solar system, we offer the best products installed by the highest-qualified personnel with industry-leading warranties on workmanship, installation and products. Our in-house team of solar experts provide you a single point of contact and accountability, making it easy and hassle-free to go solar. </p>
                 <!--<div style="margin-top:70px;">-->
                     <!--<a href="/Company/about-us" target="_blank"><img style="width:65%;" src="/images/Certified PV Installer.png"></a>-->
                 <!--</div>-->
@@ -137,7 +137,8 @@
 <script src="/libs/lightbox/js/lightbox-2.6.min.js"></script>
 <script src="/js/reduce-menu.js"></script>
 <script src="/js/match-height.js"></script>
-
+<script async src="http://i.simpli.fi/dpx.js?cid=12124&action=100&segment=Solar_Topps_Site_Retargeting&m=1"></script>
+<script src="/bower_components/jquery-form/jquery.form.js"></script>
 <script type="text/javascript">
     $(window).load(function () {
         if ($(window).width() > 767) {
@@ -149,27 +150,6 @@
                 $('.info-thumbnail .caption .description').height('auto');
                 matchHeight($('.info-thumbnail .caption .description'), 3);
             }
-        });
-        $('#submit-contact').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                url: '/api/contact',
-                type:'POST',
-                data: {
-                   name: $('form.contact #name').val(),
-                   email: $('form.contact #email').val(),
-                   message: $('form.contact #message').val()
-                },
-                success:function(result){
-                    if(result.success){
-                        $('form.contact').hide();
-                        $('form.contact').after('<p>Thanks for contacting us.  We will get back to you as soon as possible.</p>');
-                    }
-                },
-                error:function(){
-                    $('form.contact').before('<p>There was an error processing your message.  Please try sending again.</p>');
-                }
-            })
         });
     });
 </script>

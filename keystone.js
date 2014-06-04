@@ -31,15 +31,13 @@ keystone.init({
 	
 	'session': true,
 	'auth': true,
-    'port': 80,
 	'user model': 'User',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
-    'localfile dest path': 'C:\\Development\\solartopps\\public\\uploadedimages\\'
+    'localfile dest path': 'D:\\Projects\\Node\\SolarTopps\\uploadedimages\\'
 
 });
-
-keystone.set('port', keystone.get('env') == 'production' ? '80' : '8020');
-
+keystone.set('port', keystone.get('env') == 'production' ? '8050' : '8050');
+keystone.set('form upload path', "D:\\Projects\\Node\\SolarTopps\\uploadedFormFiles\\")
 // Load your project's Models
 keystone.import('models');
 keystone.set('wysiwyg additional buttons', 'styleselect');
