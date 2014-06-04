@@ -31,12 +31,14 @@ keystone.init({
 	
 	'session': true,
 	'auth': true,
-    'port': 8020,
+    'port': 80,
 	'user model': 'User',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
     'localfile dest path': 'C:\\Development\\solartopps\\public\\uploadedimages\\'
 
 });
+
+keystone.set('port', keystone.get('env') == 'production' ? '80' : '8020');
 
 // Load your project's Models
 keystone.import('models');
@@ -83,10 +85,10 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
 	find: '/images/',
-	replace: (keystone.get('env') == 'production') ? 'http://solartopps.herokuapp.com/images/' : 'http://localhost/solart/images/'
+	replace: (keystone.get('env') == 'production') ? 'http://www.solartopps.com/images/' : 'http://localhost:8020/images/'
 }, {
 	find: '/keystone/',
-	replace: (keystone.get('env') == 'production') ? 'http://solartopps.herokuapp.com/keystone/' : 'http://localhost/solart/keystone/'
+	replace: (keystone.get('env') == 'production') ? 'http://www.solartopps.com/keystone/' : 'http://localhost:8020/keystone/'
 }]);
 
 // Load your project's email test routes
