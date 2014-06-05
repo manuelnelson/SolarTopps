@@ -13,31 +13,25 @@ var keystone = require('keystone'),
 // and documentation.
 
 keystone.init({
-	
 	'name': 'SolarTopps',
 	'brand': 'SolarTopps',
-	
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.png',
-	
 	'views': 'templates/views',
     'custom engine': exphbs({defaultLayout: 'main',layoutsDir:'templates/layouts',partialsDir:'templates/views/partials',extname:'.hbs', helpers: helpers}),
 	'view engine': 'hbs',
-	
 	'emails': 'templates/emails',
-	
 	'auto update': true,
-	
 	'session': true,
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
-    'localfile dest path': 'D:\\Projects\\Node\\SolarTopps\\uploadedimages\\'
-
+    'localfile dest path': '/home/manny/Web/SolarTopps/public/uploadedimages'
 });
-keystone.set('port', keystone.get('env') == 'production' ? '8050' : '8050');
-keystone.set('form upload path', "D:\\Projects\\Node\\SolarTopps\\uploadedFormFiles\\")
+
+keystone.set('port', keystone.get('env') == 'production' ? '80' : '8050');
+keystone.set('form upload path', "/home/manny/Web/SolarTopps/public")
 // Load your project's Models
 keystone.import('models');
 keystone.set('wysiwyg additional buttons', 'styleselect');
@@ -90,7 +84,6 @@ keystone.set('email rules', [{
 }]);
 
 // Load your project's email test routes
-
 keystone.set('email tests', require('./routes/emails'));
 
 // Configure the navigation bar in Keystone's Admin UI
@@ -107,5 +100,4 @@ keystone.set('nav', {
 });
 
 // Start Keystone to connect to your database and initialise the web server
-
 keystone.start();
