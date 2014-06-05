@@ -7,23 +7,38 @@ var async = require('async'),
 
 exports = module.exports = function(req, res) {
     //file uploaded
-    if(req.files){
+    if(req.files) {
         var fileName = req.files.fileUpload.name;
         var serverPath = '/uploadedFormFiles/' + fileName;
         var localPath = keystone.get('form upload path');
-        require('fs').rename(
-            req.files.fileUpload.path, localPath + serverPath,
-            function(error) {
-                if(error) {
-                    res.send({
-                        error: 'Unable To Upload File'
-                    });
-                    return;
+        fs.readFile(req.files.fileUpload.path, function (err, data) {
+            // ...
+            var newPath = localPath + serverPath;
+            fs.writeFile(newPath, data,
+                function (error) {
+                    if (error) {
+                        res.send({
+                            error: 'Unable To Upload File'
+                        });
+                        return;
+                    }
+                    return res.apiResponse({ fileName: fileName});
                 }
-                return res.apiResponse({ fileName: fileName});
-            }
-        );
+            );
+        });
     }
+//        require('fs').rename(
+//            req.files.fileUpload.path, localPath + serverPath,
+//            function(error) {
+//                if(error) {
+//                    res.send({
+//                        error: 'Unable To Upload File'
+//                    });
+//                    return;
+//                }
+//                return res.apiResponse({ fileName: fileName});
+//            }
+//        );
     else{
         //submit the form
         var FormResponse = keystone.list('FormResponse');
