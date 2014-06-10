@@ -26,8 +26,6 @@
     $(function () {
         $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
 
-        $('form').parsley();
-
         var timerId;
         timerId = setInterval(function() {
             if($('#fileUpload') && $('#fileUpload').val() !== '') {
@@ -49,23 +47,33 @@
 
         $('.content form').on('click', '#submit-form', function(e){
             e.preventDefault();
-            $.ajax({
-                url: '/api/form',
-                type:'POST',
-                data: {
-                    form: $('#form-name').val(),
-                    response: $('.content form').serializeArray()
-                },
-                success:function(result){
-                    if(result.success){
-                        $('.content form').hide();
-                        $('.confirmationMessage').show();
+
+            $('form').parsley().validate();
+            if($('form').parsley().isValid() === true){
+                var formValues = $('.content form').serializeArray();
+                var formMarkdown = "";
+                _.each(formValues,function(item){
+                    formMarkdown += '* ' + item.name + ': ' + item.value;
+                })
+                $.ajax({
+                    url: '/api/form',
+                    type:'POST',
+                    data: {
+                        form: $('#form-name').val(),
+                        response: formValues,
+                        formMarkdown: formMarkdown
+                    },
+                    success:function(result){
+                        if(result.success){
+                            $('.content form').hide();
+                            $('.confirmationMessage').show();
+                        }
+                    },
+                    error:function(){
+                        $('.content form').before('<p>There was an error processing your message.  Please try sending again.</p>');
                     }
-                },
-                error:function(){
-                    $('.content form').before('<p>There was an error processing your message.  Please try sending again.</p>');
-                }
-            })
+                })
+            }
         });
 
         $('.datetimepicker').datetimepicker();

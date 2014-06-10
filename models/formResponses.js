@@ -9,6 +9,7 @@ var FormResponse = new keystone.List('FormResponse', {
 FormResponse.add({
     form: {type: String, index:true},
     response: {type: String},
+    formMarkdown: {type:Types.Markdown},
     createdAt: { type: Date, default: Date.now }
 });
 
