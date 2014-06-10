@@ -26,6 +26,8 @@
     $(function () {
         $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
 
+        $('form').parsley();
+
         var timerId;
         timerId = setInterval(function() {
             if($('#fileUpload') && $('#fileUpload').val() !== '') {
