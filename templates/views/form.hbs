@@ -53,7 +53,7 @@
                 var formValues = $('.content form').serializeArray();
                 var formMarkdown = "";
                 _.each(formValues,function(item){
-                    formMarkdown += '* ' + item.name + ': ' + item.value;
+                    formMarkdown += '* ' + item.name + ': ' + item.value + '\r\n';
                 })
                 $.ajax({
                     url: '/api/form',
