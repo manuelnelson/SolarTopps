@@ -64,6 +64,7 @@ exports = module.exports = function(app) {
     app.get('/go-solar/:article', routes.views.article);
 	app.all('/contact', routes.views.contact);
     app.get('/sitemap', routes.views.sitemap);
+    app.get('/profile', routes.views.profile);
 
     // API
     app.all('/api*', keystone.initAPI);
