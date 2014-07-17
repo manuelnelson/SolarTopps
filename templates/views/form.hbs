@@ -40,7 +40,7 @@
                    $('.content form').before('<p>There was an error uploading the file.  Please try sending again.</p>');
                },
                success: function(response) {
-                   $('#fileName').val('http://www.solartopps.com/uploadedFormFiles/' + response.fileName);
+                   $('#fileName').val('<a href="http://www.solartopps.com/uploadedFormFiles/' + response.fileName + '">File Upload</a>');
                }
            })
         });

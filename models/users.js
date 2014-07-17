@@ -12,7 +12,21 @@ var User = new keystone.List('User');
 User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
-	password: { type: Types.Password, initial: true, required: false }
+	password: { type: Types.Password, initial: true, required: false },
+    level: { type: Types.Select, options: 'first, second, third', default: 'first', index: true },
+    company: {type: String},
+    title: {type: String},
+    workPhone: {type: String},
+    homePhone: {type: String},
+    cellPhone: {type:String},
+    fax: {type:String},
+    webSite: {type:String},
+    address: {type: String},
+    unit: {type:String},
+    city: {type: String},
+    state: {type: String},
+    zip: {type:Types.Number},
+    country: {type: String}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone' }
 });

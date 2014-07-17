@@ -30,6 +30,17 @@ keystone.init({
     'localfile dest path': '/home/manny/Web/SolarTopps/public/uploadedimages'
 });
 
+keystone.set('suth', function(req, res, next){
+    //standard keystone auth function
+    if (!req.user || !req.user.canAccessKeystone) {
+        var from = new RegExp('^\/keystone\/?$', 'i').test(req.url) ? '' : '?from=' + req.url;
+        return res.redirect(keystone.get('signin url') + from);
+    }
+    //
+
+    next();
+});
+
 keystone.set('port', keystone.get('env') == 'production' ? '80' : '8050');
 keystone.set('form upload path', "/home/manny/Web/SolarTopps/public")
 // Load your project's Models
