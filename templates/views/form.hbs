@@ -24,15 +24,17 @@
 </section>
 <script type="text/javascript">
     $(function () {
-        $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
 
-        var timerId;
-        timerId = setInterval(function() {
-            if($('#fileUpload') && $('#fileUpload').val() !== '') {
-                clearInterval(timerId);
+
+        if($('#fileUpload').length > 0){
+            $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+            $('input:file').on('change',function(){
                 $('.content form').submit();
-            }
-        }, 500);
+            });
+        }else{
+            $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+        }
+
         $('.content form').submit(function(e){
             e.preventDefault();
            $(this).ajaxSubmit({
@@ -40,7 +42,7 @@
                    $('.content form').before('<p>There was an error uploading the file.  Please try sending again.</p>');
                },
                success: function(response) {
-                   $('#fileName').val('<a href="http://www.solartopps.com/uploadedFormFiles/' + response.fileName + '">File Upload</a>');
+                   $('#fileName').val('<a href="http://www.solartopps.com/uploadedFormFiles/' + encodeURIComponent(response.fileName) + '">File Upload</a>');
                }
            })
         });
