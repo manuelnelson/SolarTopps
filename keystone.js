@@ -32,7 +32,7 @@ keystone.init({
 });
 
 
-keystone.set('port', keystone.get('env') == 'production' ? '8050' : '8050');
+keystone.set('port', keystone.get('env') == 'production' ? '80' : '8050');
 var sessionStoreOptions = {
     db: 'solartopps'
 };
