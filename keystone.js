@@ -26,22 +26,23 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
+    'signin url': '/keystone/signin',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
     'localfile dest path': '/home/manny/Web/SolarTopps/public/uploadedimages'
 });
 
-keystone.set('suth', function(req, res, next){
-    //standard keystone auth function
-    if (!req.user || !req.user.canAccessKeystone) {
-        var from = new RegExp('^\/keystone\/?$', 'i').test(req.url) ? '' : '?from=' + req.url;
-        return res.redirect(keystone.get('signin url') + from);
-    }
-    //
 
-    next();
-});
+keystone.set('port', keystone.get('env') == 'production' ? '8050' : '8050');
+var sessionStoreOptions = {
+    db: 'solartopps'
+};
+if(keystone.get('env') == 'production')
+    sessionStoreOptions.url = 'mongodb://heroku_app25105627:rk38e037pjn9bit5vhvv58cfdc@ds043037.mongolab.com:43037/heroku_app25105627';
 
-keystone.set('port', keystone.get('env') == 'production' ? '80' : '8050');
+
+keystone.set('session store options', sessionStoreOptions);
+
+keystone.set('session store', 'connect-mongo');
 keystone.set('form upload path', "/home/manny/Web/SolarTopps/public")
 // Load your project's Models
 keystone.import('models');

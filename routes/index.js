@@ -50,8 +50,7 @@ keystone.set('500', function(err, req, res, next) {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	
-	// Views
+    // Views
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);

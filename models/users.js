@@ -28,7 +28,8 @@ User.add({
     zip: {type:Types.Number},
     country: {type: String}
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone' }
+	isAdmin: { type: Boolean, label: 'Can access Keystone' },
+    isClient: { type: Boolean, label: 'Can access Profile' }
 });
 
 // Provide access to Keystone
