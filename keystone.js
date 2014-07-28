@@ -26,7 +26,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-    'signin url': '/keystone/signin',
+    'signin url': '/signin',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
     'localfile dest path': '/home/manny/Web/SolarTopps/public/uploadedimages'
 });
@@ -102,13 +102,10 @@ keystone.set('email tests', require('./routes/emails'));
 
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
 	'users': 'users',
-    'menuTabs': 'menu-tabs',
-    'menuLinks': 'menu-links',
+    'menu': ['menu-tabs','menu-links'],
     'articles': 'articles',
-    'forms': 'forms'
+    'forms': ['forms', 'form-responses']
 });
 
 // Start Keystone to connect to your database and initialise the web server

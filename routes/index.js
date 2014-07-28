@@ -64,6 +64,7 @@ exports = module.exports = function(app) {
 	app.all('/contact', routes.views.contact);
     app.get('/sitemap', routes.views.sitemap);
     app.get('/profile', routes.views.profile);
+    app.all('/signin', routes.views.signin);
 
     // API
     app.all('/api*', keystone.initAPI);

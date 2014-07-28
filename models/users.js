@@ -16,6 +16,8 @@ User.add({
     level: { type: Types.Select, options: 'first, second, third', default: 'first', index: true },
     company: {type: String},
     title: {type: String},
+    prefix: {type: String},
+    department: {type:String},
     workPhone: {type: String},
     homePhone: {type: String},
     cellPhone: {type:String},
