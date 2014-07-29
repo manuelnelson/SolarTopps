@@ -28,7 +28,7 @@ keystone.init({
 	'user model': 'User',
     'signin url': '/signin',
 	'cookie secret': '_Ab"%|=y1dMG,9-95=VN<,ZvW$6pH5XuL.;1V#>NnHE(M(T=>DUaT=&4DHdf`UP~',
-    'localfile dest path': '/home/manny/Web/SolarTopps/public/uploadedimages'
+    'localfile dest path': 'C:/Web/SolarTopps/public/uploadedimages'
 });
 
 
@@ -43,7 +43,7 @@ if(keystone.get('env') == 'production')
 keystone.set('session store options', sessionStoreOptions);
 
 keystone.set('session store', 'connect-mongo');
-keystone.set('form upload path', "/home/manny/Web/SolarTopps/public")
+keystone.set('form upload path', "C:/Web/SolarTopps/public")
 // Load your project's Models
 keystone.import('models');
 keystone.set('wysiwyg additional buttons', 'styleselect');
