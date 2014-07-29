@@ -9,7 +9,7 @@
     "dotenv": "0.0.3",
     "express": "~4.0.0",
     "express3-handlebars": "~0.5.0",
-    "forever-monitor": "~1.2.3",
+    "forever-monitor": "~1.1",
     "connect-mongo": "~0.4.1"
   },
   "engines": {
