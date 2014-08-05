@@ -36,7 +36,7 @@ FormResponse.schema.methods.sendNotificationEmail = function(callback) {
             to: form[0].emailRecipeints,
             from: {
                 name: 'Solar Topps',
-                email: 'elnels@gmail.com'
+                email: 'info@solartopps.com'
             },
             subject: 'Form for Solar Topps',
             enquiry: {

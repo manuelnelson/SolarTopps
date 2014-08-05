@@ -1,0 +1,65 @@
+{{> navigation}}
+{{> breadcrumb}}
+<section>
+    <div class="container">
+        {{> profile-sideMenu}}
+        <div class="col-md-9">
+            <div class="content">
+                <h1><span>System Evaluation</span></h1>
+                <!--{{{data.form.content}}}-->
+                {{> shared-form}}
+                <div class="confirmationMessage" style="display:none;">
+                    <hr>
+                    {{#if data.form.confirmationMessage}}
+                        {{{data.form.confirmationMessage}}}
+                    {{else}}
+                        <p>Thanks for contacting us. We will get back to you as soon as possible.</p>
+                    {{/if}}
+                </div>
+                <input type="hidden" id="user" value="{{data.user.id}}"/>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function () {
+
+        $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+
+
+        $('.content form').on('click', '#submit-form', function (e) {
+            e.preventDefault();
+
+            $('form').parsley().validate();
+            if ($('form').parsley().isValid() === true) {
+//                $.ajax({
+//                    url: '/api/form',
+//                    type: 'POST',
+//                    data: {
+//                        response: formValues,
+//                        formMarkdown: formMarkdown
+//                    },
+//                    success: function (result) {
+//                        if (result.success) {
+//                            $('.content form').hide();
+//                            $('.confirmationMessage').show();
+//                        }
+//                    },
+//                    error: function () {
+//                        $('.content form').before('<p>There was an error processing your message.  Please try sending again.</p>');
+//                    }
+//                })
+            }
+        });
+
+        $('.datetimepicker').datetimepicker();
+
+        $('.input-group-btn ul li a').click(function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var currVal = $this.parents('.input-group').find('input').val();
+            $this.parents('.input-group').find('input').val(currVal + ' ' + $this.text());
+        });
+    });
+</script>

@@ -64,6 +64,10 @@ exports = module.exports = function(app) {
 	app.all('/contact', routes.views.contact);
     app.get('/sitemap', routes.views.sitemap);
     app.get('/profile', routes.views.profile);
+    app.get('/profile/quick-quote', routes.views.quickquote);
+    app.get('/profile/system-evaluation', routes.views.systemEvaluation);
+    app.get('/profile/monitoring', routes.views.monitoring);
+    app.get('/profile/maintenance', routes.views.maintenance);
     app.all('/signin', routes.views.signin);
 
     // API

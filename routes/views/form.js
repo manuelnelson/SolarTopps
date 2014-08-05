@@ -28,6 +28,7 @@ exports = module.exports = function(req, res) {
                 res.status(404).render('errors/404');
                 return;
             }
+			locals.data.scripts = result.scripts;
             locals.data.seo = {
                 description: result.seoDescription,
                 keywords: result.seoKeywords,

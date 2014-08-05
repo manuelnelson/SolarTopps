@@ -1,7 +1,4 @@
 /**
- * Created by elnel_000 on 5/2/2014.
- */
-/**
  * Created by elnel_000 on 4/14/2014.
  */
 var keystone = require('keystone'),
@@ -20,6 +17,7 @@ Form.add({
     content: { type: Types.Html, wysiwyg: true, height: 150 },
     form: { type: Types.Html, wysiwyg: true, height: 150 },
     emailMessage: {type: Types.Html, wysiwyg: true, height: 150},
+	scripts: {type: Types.Html, wysiwyg: true, height: 150},
     confirmationMessage: {type: Types.Html, wysiwyg: true, height: 150},
     emailRecipeints: {type: Types.Relationship, ref: 'User', many:true},
     seoKeywords: {type: String},

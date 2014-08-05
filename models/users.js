@@ -28,7 +28,8 @@ User.add({
     city: {type: String},
     state: {type: String},
     zip: {type:Types.Number},
-    country: {type: String}
+    country: {type: String},
+    consultant: {type: Types.Relationship, ref:'User'}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone' },
     isClient: { type: Boolean, label: 'Can access Profile' }

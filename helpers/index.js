@@ -94,3 +94,19 @@ exports.getActiveSubmenu = function(menu, breadCrumbs) {
         return activeMenuTab.subMenuLinks;
     }
 }
+
+exports.sendNotificationEmail = function(recipients, formName, formData, callback){
+
+    new keystone.Email('email-form').send({
+        to: recipients,
+        from: {
+            name: 'Solar Topps',
+            email: 'info@solartopps.com'
+        },
+        subject: formName + ' for Solar Topps',
+        enquiry: {
+            data: formData
+        }
+    }, callback);
+
+}
