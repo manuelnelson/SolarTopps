@@ -1,14 +1,14 @@
 var _ = require('underscore'),
     keystone = require('keystone'),
     Types = keystone.Field.Types,
-    helpers =  require("../../helpers");
+    helpers =  require("../helpers");
 
 /**
  * Users
  * =====
  */
 
-var QuickQuote = new keystone.List('SystemEvaluation');
+var QuickQuote = new keystone.List('QuickQuote');
 
 QuickQuote.add({
     name: { type: Types.Name, required: true, index: true },

@@ -1,14 +1,14 @@
 var _ = require('underscore'),
     keystone = require('keystone'),
     Types = keystone.Field.Types,
-    helpers =  require("../../helpers");
+    helpers =  require("../helpers");
 
 /**
  * Users
  * =====
  */
 
-var Monitoring = new keystone.List('SystemEvaluation');
+var Monitoring = new keystone.List('Monitoring');
 
 Monitoring.add({
     name: { type: Types.Name, required: true, index: true },
