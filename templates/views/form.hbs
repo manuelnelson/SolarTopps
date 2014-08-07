@@ -27,12 +27,12 @@
 
 
         if($('#fileUpload').length > 0){
-            $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+            $('.content form').append('<div class="form-group"><div class="col-md-2 col-md-offset-8"><input type="hidden" id="fileName" name="fileName"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
             $('input:file').on('change',function(){
                 $('.content form').submit();
             });
         }else{
-            $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+            $('.content form').append('<div class="form-group"><div class="col-md-2 col-md-offset-8"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
         }
 
         $('.content form').submit(function(e){

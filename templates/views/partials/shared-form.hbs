@@ -1,9 +1,9 @@
 <form class="form-horizontal"><fieldset><!-- Form Name --> <legend>(*Required)</legend>
     {{> generic-form}}
     <!-- Select Basic -->
-    <div class="form-group"><label class="col-md-4 control-label" for="propertyType">* Property Type</label>
-        <div class="col-md-5"><select id="propertyType" class="form-control" name="propertyType">
-            <option value="">-</option>
+    <div class="form-group">
+        <div class="col-md-10"><select id="propertyType" class="form-control" name="propertyType">
+            <option value="">--Property Type--</option>
             <option value="">Residential Single Story</option>
             <option value="">Residential Double Story</option>
             <option value="">Commercial Single Story</option>
@@ -14,20 +14,17 @@
         </select></div>
     </div>
     <!-- Button Drop Down -->
-    <div class="form-group"><label class="col-md-4 control-label" for="Former Solar Topps Customer">Are You An Existing Solar Topps Customer? If Not, Please Answer The Questions Below</label>
+    <div class="form-group"><label class="col-md-10 control-label" style="text-align: left;" for="Former Solar Topps Customer">Are You An Existing Solar Topps Customer? If Not, Please Answer The Questions Below</label>
     </div>
     <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="whoInstalled">Who Installed Your System?</label>
-        <div class="col-md-5"><input id="whoInstalled" class="form-control input-md" name="whoInstalled" type="text" placeholder="Company Name" /></div>
-    </div>
-    <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="whenInstalled">When Was Your System Installed?</label>
+    <div class="form-group">
+        <div class="col-md-5"><input id="whoInstalled" class="form-control input-md" name="whoInstalled" type="text" placeholder="Company Who Installed Your System" /></div>
         <div class="col-md-5"><input id="whenInstalled" class="form-control input-md" name="whenInstalled" type="text" placeholder="Installation Date" /></div>
     </div>
     <!-- Button Drop Down -->
-    <div class="form-group"><label class="col-md-4 control-label" for="purchased">* Is Your System Purchased or Leased?</label>
-        <div class="col-md-4">
-            <div class="input-group"><input id="purchased" class="form-control" name="purchased" required="" type="text" placeholder="" />
+    <div class="form-group">
+        <div class="col-md-10">
+            <div class="input-group"><input id="purchased" class="form-control" name="purchased" required="" type="text" placeholder="Purchased Or Leased" />
                 <div class="input-group-btn"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> Choose One </button>
                     <ul class="dropdown-menu pull-right">
                         <li><a href="#">Purchase</a></li>
@@ -38,17 +35,14 @@
         </div>
     </div>
     <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="monitoring">What Type of Monitoring Do You Have?</label>
-        <div class="col-md-5"><input id="monitoring" class="form-control input-md" name="monitoring" type="text" placeholder="Company Name" /> <span class="help-block">If None, Please Write N/A</span></div>
+    <div class="form-group">
+        <div class="col-md-10"><input id="monitoring" class="form-control input-md" name="monitoring" type="text" placeholder="Current Type of Monitoring" /> <span class="help-block">If None, Please Write N/A</span></div>
     </div>
     <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="size">What is the Size of Your System?</label>
-        <div class="col-md-5"><input id="size" class="form-control input-md" name="size" type="text" placeholder="# kW" /></div>
-    </div>
-    <!-- Button Drop Down -->
-    <div class="form-group"><label class="col-md-4 control-label" for="systemMounting">System Mounting</label>
+    <div class="form-group">
+        <div class="col-md-5"><input id="size" class="form-control input-md" name="size" type="text" placeholder="Size of System in kW" /></div>
         <div class="col-md-5">
-            <div class="input-group"><input id="systemMounting" class="form-control" name="systemMounting" type="text" placeholder="" />
+            <div class="input-group"><input id="systemMounting" class="form-control" name="systemMounting" type="text" placeholder="System Mounting" />
                 <div class="input-group-btn"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> Choose </button>
                     <ul class="dropdown-menu pull-right">
                         <li><a href="#">Roof</a></li>
@@ -60,24 +54,18 @@
         </div>
     </div>
     <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="numberOfPanels">How Many Panels Are On Your System?</label>
-        <div class="col-md-5"><input id="numberOfPanels" class="form-control input-md" name="numberOfPanels" type="text" placeholder="Panel Qty" /></div>
+    <div class="form-group">
+        <div class="col-md-5"><input id="numberOfPanels" class="form-control input-md" name="numberOfPanels" type="text" placeholder="Number of Panels On Your System" /></div>
+        <div class="col-md-5"><input id="typeOfPanels" class="form-control input-md" name="typeOfPanels" type="text" placeholder="Type of Panels" /> <span class="help-block">(SunPower, Hyundai, Hanwha etc)</span></div>
     </div>
     <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="typeOfPanels">What Type of Panels Are On Your System?</label>
-        <div class="col-md-5"><input id="typeOfPanels" class="form-control input-md" name="typeOfPanels" type="text" placeholder="Company Name" /> <span class="help-block">(SunPower, Hyundai, Hanwha etc)</span></div>
-    </div>
-    <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="numberOfInverters">How Many Inverters Does Your System Have?</label>
-        <div class="col-md-5"><input id="numberOfInverters" class="form-control input-md" name="numberOfInverters" type="text" placeholder="Inverty Qty" /></div>
-    </div>
-    <!-- Text input-->
-    <div class="form-group"><label class="col-md-4 control-label" for="typeOfInverters">What Type of Inverters Are On Your System?</label>
-        <div class="col-md-5"><input id="typeOfInverters" class="form-control input-md" name="typeOfInverters" type="text" placeholder="Company Name" /></div>
+    <div class="form-group">
+        <div class="col-md-5"><input id="numberOfInverters" class="form-control input-md" name="numberOfInverters" type="text" placeholder="Number of Inverters" /></div>
+        <div class="col-md-5"><input id="typeOfInverters" class="form-control input-md" name="typeOfInverters" type="text" placeholder="Type of Inverters (Company)" /></div>
     </div>
     <!-- Select Multiple -->
-    <div class="form-group"><label class="col-md-4 control-label" for="hearAbout">How Did You Hear About Us?</label>
-        <div class="col-md-5"><select id="hearAbout" class="form-control" multiple="multiple" name="hearAbout">
+    <div class="form-group"><label class="col-md-10 control-label" style="text-align: left;">How Did You Hear About Us?</label>
+        <div class="col-md-10"><select id="hearAbout" class="form-control" multiple="multiple" name="hearAbout" placeholder="How Did You Hear About Us">
             <option value="">Google</option>
             <option value="">Bing</option>
             <option value="">Yahoo</option>
@@ -99,7 +87,7 @@
         </select></div>
     </div>
     <!-- Textarea -->
-    <div class="form-group"><label class="col-md-4 control-label" for="comments">Comments</label>
-        <div class="col-md-4"><textarea id="comments" class="form-control" name="comments">Provide any additional information you feel necessary</textarea></div>
+    <div class="form-group">
+        <div class="col-md-10"><textarea id="comments" class="form-control" name="comments">Provide any additional information you feel necessary</textarea></div>
     </div>
 </fieldset></form>

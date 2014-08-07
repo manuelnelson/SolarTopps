@@ -76,6 +76,11 @@ exports = module.exports = function(app) {
     app.all('/api/form', routes.api.form);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
-	
+
+	//redirects
+	app.get('/solar-quote-rooftop-solar-power/df*', routes.views.index);
+	app.get('/home-solar-panels-and-temperature-considerations*', routes.views.index);
+	app.get('//comparing-solar-system-solar-panel-efficiency-important*', routes.views.index);
+	app.get('/comparing-solar-system-solar-panel-efficiency-important*', routes.views.index);
 }
 
