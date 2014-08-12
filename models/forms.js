@@ -21,7 +21,9 @@ Form.add({
     confirmationMessage: {type: Types.Html, wysiwyg: true, height: 150},
     emailRecipeints: {type: Types.Relationship, ref: 'User', many:true},
     seoKeywords: {type: String},
-    seoDescription: {type: String}
+    seoDescription: {type: String},
+	useFacebookTracking: {type:Types.Boolean},
+	useBingTracking: {type:Types.Boolean}
 });
 
 Form.defaultColumns = 'title, state|20%';

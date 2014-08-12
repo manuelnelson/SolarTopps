@@ -18,7 +18,9 @@ Article.add({
     image: { type: Types.LocalFile, dest: keystone.get('localfile dest path') },
     content: { type: Types.Html, wysiwyg: true, height: 150 },
     seoKeywords: {type: String},
-    seoDescription: {type: String}
+    seoDescription: {type: String},
+	useFacebookTracking: {type:Types.Boolean},
+	useBingTracking: {type:Types.Boolean}
 });
 
 Article.schema.virtual('content.full').get(function() {

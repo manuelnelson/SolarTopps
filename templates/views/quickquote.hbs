@@ -11,11 +11,9 @@
                     <fieldset><!-- Form Name -->
                         <legend>(*Required)</legend>
                         {{> generic-form}}
-                        <div class="form-group"><label class="col-md-4 control-label" for="propertyType">* Property
-                            Type</label>
-
-                            <div class="col-md-5"><select id="propertyType" class="form-control" name="propertyType">
-                                <option value="1">-</option>
+                        <div class="form-group">
+                            <div class="col-md-10"><select id="propertyType" class="form-control" name="propertyType">
+                                <option value="1">-- Property Type--</option>
                                 <option value="Residential Single Story">Residential Single Story</option>
                                 <option value="Residential Double Story">Residential Double Story</option>
                                 <option value="Commercial Single Story">Commercial Single Story</option>
@@ -25,15 +23,12 @@
                                 <option value="New Home Construction">New Home Construction</option>
                             </select></div>
                         </div>
-
                         <!-- Button Drop Down -->
-                        <div class="form-group"><label class="col-md-4 control-label" for="electricBill">Average
-                            Electric Bill</label>
-
+                        <div class="form-group">
                             <div class="col-md-5">
                                 <div class="input-group"><input id="electricBill" class="form-control"
                                                                 name="electricBill" type="text"
-                                                                placeholder="$"/>
+                                                                placeholder="Average Electric Bill"/>
 
                                     <div class="input-group-btn">
                                         <button class="btn btn-default dropdown-toggle" type="button"
@@ -46,16 +41,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Button Drop Down -->
-                        <div class="form-group"><label class="col-md-4 control-label" for="usage">Average
-                            kWh Usage</label>
-
                             <div class="col-md-5">
                                 <div class="input-group"><input id="usage" class="form-control"
                                                                 name="usage" type="text"
-                                                                placeholder="# kWh"/>
-
+                                                                placeholder="Average kWh Usage"/>
                                     <div class="input-group-btn">
                                         <button class="btn btn-default dropdown-toggle" type="button"
                                                 data-toggle="dropdown"> Choose One
@@ -69,26 +58,17 @@
                             </div>
                         </div>
                         <!-- Text input-->
-                        <div class="form-group"><label class="col-md-4 control-label" for="utilityCompany">Utility</label>
-
+                        <div class="form-group">
                             <div class="col-md-5"><input id="utilityCompany" class="form-control input-md" name="utilityCompany"
                                                          type="text" placeholder="Your Utility Company"/> <span
                                     class="help-block">(example: SRP, APS, TEP)</span></div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="form-group"><label class="col-md-4 control-label" for="utilityRatePlan">Utility
-                            Rate Plan</label>
-
                             <div class="col-md-5"><input id="utilityRatePlan" class="form-control input-md"
                                                          name="utilityRatePlan" type="text"
                                                          placeholder="Utility Rate Plan"/></div>
                         </div>
                         <!-- Select Multiple -->
-                        <div class="form-group"><label class="col-md-4 control-label" for="hearAbout">*
-                            How Did You Hear About Us</label>
-
-                            <div class="col-md-5"><select id="hearAbout" class="form-control"
-                                                          multiple="multiple" name="hearAbout">
+                        <div class="form-group"><label class="col-md-10 control-label" style="text-align: left;">How Did You Hear About Us?</label>
+                            <div class="col-md-10"><select id="hearAbout" class="form-control" multiple="multiple" name="hearAbout" placeholder="How Did You Hear About Us">
                                 <option value="">Google</option>
                                 <option value="">Bing</option>
                                 <option value="">Yahoo</option>
@@ -110,13 +90,10 @@
                             </select></div>
                         </div>
                         <!-- Textarea -->
-                        <div class="form-group"><label class="col-md-4 control-label" for="comments">Comments</label>
-
-                            <div class="col-md-4"><textarea id="comments" class="form-control"
-                                                            style="margin: 2px; width: 555px; height: 56px;"
-                                                            name="comments">Provide any additional information you feel
-                                necessary</textarea></div>
+                        <div class="form-group">
+                            <div class="col-md-10"><textarea id="comments" class="form-control" name="comments">Provide any additional information you feel necessary</textarea></div>
                         </div>
+                        <div class="form-group"><div class="col-md-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>
                     </fieldset>
                 </form>
                 <div class="confirmationMessage" style="display:none;">
@@ -136,7 +113,7 @@
 <script type="text/javascript">
     $(function () {
 
-        $('.content form').append('<div class="form-group"><div class="col-md-4 col-md-offset-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>');
+        $('.content form').append('');
 
 
         $('.content form').on('click', '#submit-form', function (e) {

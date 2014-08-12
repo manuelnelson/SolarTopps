@@ -68,7 +68,10 @@ exports = module.exports = function(app) {
     app.get('/profile/system-evaluation', routes.views.systemEvaluation);
     app.get('/profile/monitoring', routes.views.monitoring);
     app.get('/profile/maintenance', routes.views.maintenance);
-    app.all('/signin', routes.views.signin);
+	app.get('/profile/solar-party', routes.views.solarParty);
+	app.get('/register', routes.views.register);
+	app.get('/profile/user-information', routes.views.userInformation);
+	app.all('/signin', routes.views.signin);
 
     // API
     app.all('/api*', keystone.initAPI);

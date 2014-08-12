@@ -5,9 +5,14 @@
         {{> profile-sideMenu}}
         <div class="col-md-9">
             <div class="content">
-                <h1><span>Maintenance</span></h1>
-                <!--{{{data.form.content}}}-->
-                {{> shared-form}}
+                <h1><span>Your Information</span></h1>
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>(*Required)</legend>
+                        {{> user-information}}
+                        <div class="form-group"><div class="col-md-4"><button type="submit" id="submit-form" class="btn btn-lead btn-lg">Submit</button></div></div>
+                    </fieldset>
+                </form>
                 <div class="confirmationMessage" style="display:none;">
                     <hr>
                     {{#if data.form.confirmationMessage}}
@@ -24,29 +29,12 @@
 </section>
 <script type="text/javascript">
     $(function () {
-
         $('.content form').on('click', '#submit-form', function (e) {
             e.preventDefault();
 
             $('form').parsley().validate();
             if ($('form').parsley().isValid() === true) {
-//                $.ajax({
-//                    url: '/api/form',
-//                    type: 'POST',
-//                    data: {
-//                        response: formValues,
-//                        formMarkdown: formMarkdown
-//                    },
-//                    success: function (result) {
-//                        if (result.success) {
-//                            $('.content form').hide();
-//                            $('.confirmationMessage').show();
-//                        }
-//                    },
-//                    error: function () {
-//                        $('.content form').before('<p>There was an error processing your message.  Please try sending again.</p>');
-//                    }
-//                })
+
             }
         });
 
