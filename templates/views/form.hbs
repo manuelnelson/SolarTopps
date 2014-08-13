@@ -67,8 +67,7 @@
                     },
                     success:function(result){
                         if(result.success){
-                            $('.content form').hide();
-                            $('.confirmationMessage').show();
+                            window.location.href = '/resources/thank-you';
                         }
                     },
                     error:function(){

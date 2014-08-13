@@ -9,11 +9,12 @@ exports = module.exports = function(req, res) {
 	locals.section = 'form';
 
 	view.on('init', function(next) {
-		helpers.getMenu('register', function(err,result){
-			locals.data.menu = result;
-//            locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.form.toLowerCase());
-			next(err);
-		});
+//		helpers.getMenu('register', function(err,result){
+//			locals.data.menu = result;
+////            locals.data.breadcrumbs = helpers.getBreadcrumbs(result,req.url.toLowerCase(),locals.filters.form.toLowerCase());
+//			next(err);
+//		});
+		next(err);
 	});
 
 
