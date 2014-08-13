@@ -71,6 +71,7 @@ exports = module.exports = function(app) {
 	app.get('/profile/solar-party', routes.views.solarParty);
 	app.get('/register', routes.views.register);
 	app.get('/profile/user-information', routes.views.userInformation);
+
 	app.all('/signin', routes.views.signin);
 
     // API
@@ -81,9 +82,10 @@ exports = module.exports = function(app) {
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 	//redirects
-	app.get('/solar-quote-rooftop-solar-power/df*', routes.views.index);
 	app.get('/home-solar-panels-and-temperature-considerations*', routes.views.index);
-	app.get('//comparing-solar-system-solar-panel-efficiency-important*', routes.views.index);
 	app.get('/comparing-solar-system-solar-panel-efficiency-important*', routes.views.index);
+	app.get('/solar-quote-rooftop-solar-power*', routes.views.index);
+
+
 }
 
